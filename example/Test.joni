@@ -1,0 +1,42 @@
+package example
+
++ Test class {
+  
+  - a:int;
+  - b:int = 1;
+  - c():int = return 1;
+
+  + ^ main(argv:Array[String]):void = {
+
+    System.out.println("c()="+new Test().c())
+    a:int=0
+    b:int=0
+    System.out.println("1+2+3="+(a=b=1+2+3))
+    System.out.println("1+2+3="+(a=(b=1)+2+3))
+    System.out.println("1*2+3="+(1*2+3))
+    System.out.println("(1+2)*3="+((1+2)*3))
+    System.out.println("-(1+2*3)="+ -(1+2*3))
+    System.out.println("(-1+2*3)="+ (-1+2*3))
+
+    System.out.println("eq="+new Test().eval(new Int(1)))
+    System.out.println("eq="+new Test().eval(new Add(new Int(1),new Int(2))))
+  }
+
+  - eval(e:E):int = {
+    e match {
+      | Int => return $._1
+      | Add =>
+        a:int = eval($._1)
+        b:int = eval($._2)
+        return a + b
+    }
+    return 0
+  }
+
+  ^ Point class(x:int, y:int);
+  ^ Point3D class(x:int, y:int, z:int);
+  ^ E class();
+  ^ E :> Int class(int);
+  ^ E :> Add class(E,E);
+
+}

@@ -1,0 +1,5 @@
+package example
+Hello class {
+  ^ + main(argv:Array[String]):void =
+    System.out.println("hello world")
+}
