@@ -3,16 +3,16 @@ package example
 + Test class {
   
   - a:int;
-  - b:int = 1;
-  - c():int = return 1;
+  - 1 -> b:int;
+  - c() = {return 1;}:int
 
-  + ^ main(argv:Array[String]):void = {
+  + ^ main(argv:Array[String]) = {
 
     System.out.println("c()="+new Test().c())
-    a:int=0
-    b:int=0
-    System.out.println("1+2+3="+(a=b=1+2+3))
-    System.out.println("1+2+3="+(a=(b=1)+2+3))
+    0->a:int
+    0->b:int
+    System.out.println("1+2+3="+(1+2+3->a->b))
+    System.out.println("1+2+3="+((1->b)+2+3->a))
     System.out.println("1*2+3="+(1*2+3))
     System.out.println("(1+2)*3="+((1+2)*3))
     System.out.println("-(1+2*3)="+ -(1+2*3))
@@ -20,14 +20,14 @@ package example
 
     System.out.println("eq="+new Test().eval(new Int(1)))
     System.out.println("eq="+new Test().eval(new Add(new Int(1),new Int(2))))
-  }
+  }:void
 
   - eval(e:E):int = {
     e match {
       | Int => return $._1
       | Add =>
-        a:int = eval($._1)
-        b:int = eval($._2)
+        eval($._1) -> a:int
+        eval($._2) -> b:int
         return a + b
     }
     return 0
