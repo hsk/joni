@@ -9,15 +9,15 @@ let trans input output =
   Gen_java.print_prog out ast;
   close_out out
 
-let gomaj2java src =
+let joni2java src =
   let len = String.length src in
-  if String.sub src (len - 6) 6 = ".gomaj"
+  if String.sub src (len - 5) 5 = ".joni"
   then
-    String.sub src 0 (len - 6) ^ ".java"
+    String.sub src 0 (len - 5) ^ ".java"
   else
     failwith "filename is bad."
 
 let _ =
-  let gomaj = Sys.argv.(1) in
-  let java = gomaj2java(gomaj) in
-  trans gomaj java
+  let joni = Sys.argv.(1) in
+  let java = joni2java(joni) in
+  trans joni java

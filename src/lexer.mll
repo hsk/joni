@@ -52,7 +52,7 @@ rule token = parse
 | ">=" { GE }
 | "==" { EQ }
 | "!=" { NE }
-
+| "->" { RASSIGN }
 | '+' { ADD }
 | '-' { SUB }
 | '*' { MUL }

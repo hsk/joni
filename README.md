@@ -1,6 +1,6 @@
-# GomaJ Programming Language
+# Joni Programming Language
 
-GomaJ(beta) is tiny AltJ, namely, GomaJ is a very simple limited translator for the Java programming language.
+Joni(beta) is tiny AltJ, namely, joni is a very simple limited translator for the Java programming language.
 
 This compiler made by OCaml, OCamlYacc and OCamlLex.
 
@@ -10,7 +10,7 @@ This compiler made by OCaml, OCamlYacc and OCamlLex.
 
 ## hello world
 
-#### example/Hello.gomaj
+#### example/Hello.joni
 
 ```
 package example
@@ -25,7 +25,7 @@ Hello class {
 
 #### build & run
 
-    $ ./gomajc example/hello.gomaj example/Hello.java
+    $ ./jonic example/hello.joni example/Hello.java
     $ javac example/Hello.java
     $ ./java example.Hello
     hello world!

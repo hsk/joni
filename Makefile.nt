@@ -11,17 +11,17 @@ opt:
 	cd src; ocamlopt ast.ml parser.ml lexer.ml gen_java.ml main.ml -o ../jonic.exe
 
 hello:
-	.\jonic example\Hello.gomaj
+	.\jonic example\Hello.joni
 	javac example\Hello.java
 	java example.Hello
 
 fib:
-	.\jonic example\Fib.gomaj
+	.\jonic example\Fib.joni
 	javac example\Fib.java
 	java example.Fib
 
-test: example\Test.gomaj
-	.\jonic example\Test.gomaj
+test: example\Test.joni
+	.\jonic example\Test.joni
 	javac example\Test.java
 	java example.Test
 

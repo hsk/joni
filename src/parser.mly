@@ -22,7 +22,7 @@ let addBlock = function
 
 %token LPAREN RPAREN LBRACE RBRACE LBRACK RBRACK
 %token HAT SHARP HART
-%token ASSIGN
+%token ASSIGN RASSIGN
 %token CAST
 %token EQ NE
 %token LT GT LE GE
@@ -37,6 +37,7 @@ let addBlock = function
 /* operator precedence */
 
 %right ASSIGN
+%left RASSIGN
 %right CAST
 %left EQ NE
 %left LT GT LE GE
@@ -80,6 +81,7 @@ exp2:
 exp:
   | simple_exp { $1 }
   | exp ASSIGN exp2 { EBin($1, "=", $3) }
+  | exp2 RASSIGN exp { EBin($3, "=", $1) }
 
   | exp EQ exp2 { EBin($1, "==", $3) }
   | exp NE exp2 { EBin($1, "!=", $3) }
