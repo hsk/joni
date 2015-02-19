@@ -37,7 +37,7 @@ let addBlock = function
 /* operator precedence */
 
 %right ASSIGN
-%left RASSIGN
+%right RASSIGN
 %right CAST
 %left EQ NE
 %left LT GT LE GE
@@ -132,6 +132,8 @@ stmt:
   | IF LPAREN exp RPAREN stmt ELSE stmt { SIf($3, $5, $7) }
   | ID COLON ID { SLet(Ty $3, EVar $1, EEmpty) }
   | ID COLON typ ASSIGN exp { SLet($3, EVar $1, $5) }
+  | exp RASSIGN ID COLON typ { SLet($5, EVar $3, $1) }
+
   | exp MATCH LBRACE cases RBRACE { SMatch($1, $4) }
 
 defs:
