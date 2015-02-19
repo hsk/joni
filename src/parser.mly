@@ -80,24 +80,24 @@ exp2:
 
 exp:
   | simple_exp { $1 }
-  | exp ASSIGN exp2 { EBin($1, "=", $3) }
-  | exp2 RASSIGN exp { EBin($3, "=", $1) }
+  | simple_exp ASSIGN exp { EBin($1, "=", $3) }
+  | exp RASSIGN simple_exp { EBin($3, "=", $1) }
 
-  | exp EQ exp2 { EBin($1, "==", $3) }
-  | exp NE exp2 { EBin($1, "!=", $3) }
+  | exp EQ exp { EBin($1, "==", $3) }
+  | exp NE exp { EBin($1, "!=", $3) }
 
-  | exp LT exp2 { EBin($1, "<", $3) }
-  | exp GT exp2 { EBin($1, ">", $3) }
-  | exp LE exp2 { EBin($1, "<=", $3) }
-  | exp GE exp2 { EBin($1, ">=", $3) }
+  | exp LT exp { EBin($1, "<", $3) }
+  | exp GT exp { EBin($1, ">", $3) }
+  | exp LE exp { EBin($1, "<=", $3) }
+  | exp GE exp { EBin($1, ">=", $3) }
 
-  | exp ADD exp2 { EBin($1, "+", $3) }
-  | exp SUB exp2 { EBin($1, "-", $3) }
+  | exp ADD exp { EBin($1, "+", $3) }
+  | exp SUB exp { EBin($1, "-", $3) }
 
-  | exp MUL exp2 { EBin($1, "*", $3) }
-  | exp DIV exp2 { EBin($1, "/", $3) }
+  | exp MUL exp { EBin($1, "*", $3) }
+  | exp DIV exp { EBin($1, "/", $3) }
 
-  | exp DOT exp2 { EBin($1, ".", $3) }
+  | exp DOT exp { EBin($1, ".", $3) }
 
   | NEW exp2 { EPre("new", $2) }
   | SUB exp2 %prec NEW { EPre("-", $2)}

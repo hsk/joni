@@ -11,12 +11,13 @@ package example
     System.out.println("c()="+new Test().c())
     a:int=0
     b:int=0
-    System.out.println("1+2+3="+(1+2+3->b->a))
-    System.out.println("1+2+3="+(a=(1->b)+2+3))
-    System.out.println("1*2+3="+(1*2+3))
+    System.out.println("1+2+3->b->a="+(1+2+3->b->a))
+    System.out.println("a=(1->b)+2+3="+(a=(1->b)+2+3))
+    System.out.println("5*2+3="+(5*2+3))
     System.out.println("(1+2)*3="+((1+2)*3))
     System.out.println("-(1+2*3)="+ -(1+2*3))
     System.out.println("(-1+2*3)="+ (-1+2*3))
+    System.out.println("str+1+2+3"+1+2+3)
 
     System.out.println("eq="+new Test().eval(new Int(1)))
     System.out.println("eq="+new Test().eval(new Add(new Int(1),new Int(2))))

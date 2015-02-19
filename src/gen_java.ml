@@ -114,7 +114,7 @@ let rec print_e ?(paren=true) ?(p=0) = function
     let (p1,l) = (M.find op infixs) in
     let paren = paren && (if l then p1 <= p else p1 < p) in
     if paren then fprintf !fp "(";
-    print_e e1 ~p:(if l then p1 else p1 - 1);
+    print_e e1 ~p:(if l then p1 - 1 else p1 + 1);
     fprintf !fp "%s" op;
     print_e e2 ~p:p1;
     if paren then fprintf !fp ")"
