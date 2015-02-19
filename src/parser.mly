@@ -99,7 +99,7 @@ exp:
 
   | exp DOT exp { EBin($1, ".", $3) }
 
-  | NEW exp2 { EPre("new", $2) }
+  | NEW exp { EPre("new", $2) }
   | SUB exp2 %prec NEW { EPre("-", $2)}
 
   | AT exp2 { EBin(EVar("this"), ".", $2) }
